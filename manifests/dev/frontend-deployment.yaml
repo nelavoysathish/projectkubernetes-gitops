@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: nelavoyacr.azurecr.io/frontend:latest
+        image: nelavoyacr.azurecr.io/frontend:2b940f2234accebb5b9af7a50683bfbdbff11c53
         ports:
         - containerPort: 8080
         env:
