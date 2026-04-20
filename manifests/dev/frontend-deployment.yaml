@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-frontend
+  namespace: otel-demo-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      opentelemetry.io/name: opentelemetry-demo-frontend
+  template:
+    metadata:
+      labels:
+        opentelemetry.io/name: opentelemetry-demo-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nelavoyacr.azurecr.io/frontend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: FRONTEND_PORT
+          value: "8080"
+        - name: OTEL_SERVICE_NAME
+          value: "frontend"
